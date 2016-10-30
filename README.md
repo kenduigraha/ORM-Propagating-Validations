@@ -28,7 +28,7 @@ Implement authentication and authorization web API using node.js and express fra
 ## Database's Structure
 
 1. Database's name : db_EO
-2. Collection's name : EO
+2. Collection's name : EOs
 3. Fields : event_name, event_title, event_email, date_create
 
 ## HTTP Routes
