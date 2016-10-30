@@ -9,12 +9,17 @@ let processAddData = (req, res, next) => {
   EO.create({
     event_name  : req.body.event_name,
     event_title : req.body.event_title,
-    event_email : req.body.event_email,
+    email : req.body.email,
     date_create : req.body.date_create
   }, (err, data) => {
-    if(err) console.log(err)
+    if(err){
+      console.log(err)
 
-    res.redirect('/list')
+      res.render('index', {title: 'Event\'s Organizer',err: err, input: req.body})
+    }else{
+      res.redirect('/list')
+    }
+
   })
 }
 

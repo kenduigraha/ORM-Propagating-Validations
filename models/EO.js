@@ -15,7 +15,11 @@ let Schema = mongoose.Schema
 let EOSchema = new Schema ({
   event_name: String,
   event_title: String,
-  event_email: String,
+  email : {
+    type: String,
+    required: true,
+    validate: emailValidator
+  },
   date_create: Date
 })
 

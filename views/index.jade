@@ -2,6 +2,7 @@ extends layout
 
 block content
   .container
+  p #{err}
     nav.navbar.navbar-default
       .container-fluid
         .navbar-header
@@ -13,34 +14,31 @@ block content
               a(href="/list") Show Data
 
     p Event Organizers
-    form(action="/signup" method="post")
+    form(action="/add" method="post")
       .form-group
         label(for="event_name") Event's Name 
-        input(type="text" class="form-control" name="event_name" id="event_name")
-        //- if err
-        //-   if err.name === "MissingUsernameError"
-        //-     p(style="color: red") #{err.message}
-        //-   else if err.name === "ValidationError" && err.errors.username
-        //-     p(style="color: red") #{err.errors.username.message}
-        //-   else if err.name === "UserExistsError"
-        //-     p(style="color: red") #{err.message}
+        input(type="text" class="form-control" name="event_name" id="event_name" value=(input ? (input.event_name ? input.event_name : '') : ''))
+        if err
+          if err.event_name
+            p(style="color: red") #{err.event_name.message}
       .form-group
         label(for="event_title") Title
-        input(type="text" class="form-control" name="event_title" id="event_title")
-        //- if err
-        //-   if err.name === "MissingPasswordError"
-        //-     p(style="color: red") #{err.message}
-        //-   else if err.name === "ValidationError" && err.errors.password
-        //-     p(style="color: red") #{err.errors.password.message}
+        input(type="text" class="form-control" name="event_title" id="event_title" value=(input ? (input.event_title ? input.event_title : '') : ''))
+        if err
+          if err.event_title
+            p(style="color: red") #{err.event_title.message}
       .form-group
-        label(for="event_email") email
-        input(type="text" class="form-control" name="event_email" id="event_email")
-        //- if err
-        //-   if err.name === "MissingEmailError"
-        //-     p(style="color: red") #{err.email.message}
-        //-   else if err.name === "ValidationError" && err.errors.email
-        //-     p(style="color: red") #{err.errors.email.message}
+        label(for="email") email
+        input(type="text" class="form-control" name="email" id="email" value=(input ? (input.email ? input.email : '') : ''))
+        if err
+          if err.name === "MissingEmailError"
+            p(style="color: red") #{err.email.message}
+          else if err.name === "ValidationError" && err.errors.email
+            p(style="color: red") #{err.errors.email.message}
       .form-group
         label(for="date_create") Date Create
-        input(type="date" class="form-control" name="date_create" id="date_create")
+        input(type="date" class="form-control" name="date_create" id="date_create" value=(input ? (input.date_create ? input.date_create : '') : ''))
+        if err
+          if err.date_create
+            p(style="color: red") #{err.date_create.message}
       button(type="submit" class="btn btn-primary") Submit
