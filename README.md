@@ -42,11 +42,61 @@ Implement authentication and authorization web API using node.js and express fra
 ## package.json
 
 ```
+{
+    "name": "ORM_propagating_validations",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon ./bin/www"
+    },
+    "dependencies": {
+        "body-parser": "~1.15.1",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.2.0",
+        "express": "~4.13.4",
+        "jade": "~1.11.0",
+        "mongodb": "^2.2.11",
+        "mongoose": "^4.6.5",
+        "mongoose-validator": "^1.2.5",
+        "morgan": "~1.7.0",
+        "serve-favicon": "~2.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    }
+}
+
 ```
 
 ## App's Structure
 
 ```
+.
+├── app.js
+├── bin
+│   └── www
+├── controllers
+│   └── index.js
+├── helpers
+│   └── middleware.js
+├── models
+│   └── EO.js
+├── package.json
+├── public
+│   └── stylesheets
+├── README.md
+├── routes
+│   ├── index.js
+│   └── list.js
+└── views
+    ├── error.jade
+    ├── footer.jade
+    ├── index.jade
+    ├── layout.jade
+    ├── list.jade
+    └── navbar.jade
+
+8 directories, 15 files
 
 ```
 
