@@ -12,7 +12,7 @@ var app = express();
 
 //mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/library');
+mongoose.connect('mongodb://localhost/db_EO');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

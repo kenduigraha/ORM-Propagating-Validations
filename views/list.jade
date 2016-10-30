@@ -1,0 +1,18 @@
+extends navbar
+
+block content
+  .container
+    table.table.table-hover
+      thead
+        tr
+          th Event's Name
+          th Event's Title
+          th emai
+          th Event's Date
+      tbody
+        - for(var i = 0 ; i < data.length ; i++)
+          tr
+            td #{data[i].event_name}
+            td #{data[i].event_title}
+            td #{data[i].email}
+            td #{data[i].date_create}
