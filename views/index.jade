@@ -1,5 +1,46 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a(class="navbar-brand" href="/") #{title}
+        ul.nav.navbar-nav
+            li
+              a(href="/login") Add data
+            li
+              a(href="/signup") Show Data
+
+    p Event Organizers
+    form(action="/signup" method="post")
+      .form-group
+        label(for="event_name") Event's Name 
+        input(type="text" class="form-control" name="event_name" id="event_name")
+        //- if err
+        //-   if err.name === "MissingUsernameError"
+        //-     p(style="color: red") #{err.message}
+        //-   else if err.name === "ValidationError" && err.errors.username
+        //-     p(style="color: red") #{err.errors.username.message}
+        //-   else if err.name === "UserExistsError"
+        //-     p(style="color: red") #{err.message}
+      .form-group
+        label(for="event_title") Title
+        input(type="text" class="form-control" name="event_title" id="event_title")
+        //- if err
+        //-   if err.name === "MissingPasswordError"
+        //-     p(style="color: red") #{err.message}
+        //-   else if err.name === "ValidationError" && err.errors.password
+        //-     p(style="color: red") #{err.errors.password.message}
+      .form-group
+        label(for="email") email
+        input(type="text" class="form-control" name="email" id="email")
+        //- if err
+        //-   if err.name === "MissingEmailError"
+        //-     p(style="color: red") #{err.email.message}
+        //-   else if err.name === "ValidationError" && err.errors.email
+        //-     p(style="color: red") #{err.errors.email.message}
+      .form-group
+        label(for="date_create") Date Create
+        input(type="date" class="form-control" name="date_create" id="date_create")
+      button(type="submit" class="btn btn-primary") Submit
