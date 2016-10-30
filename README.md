@@ -27,16 +27,17 @@ Implement authentication and authorization web API using node.js and express fra
 
 ## Database's Structure
 
-1. Database's name : db_users
-2. Collection's name : users
-3. Fields : username, role, email
+1. Database's name : db_EO
+2. Collection's name : EO
+3. Fields : event_name, event_title, event_email, date_create
 
 ## HTTP Routes
 
-| Routes | HTTP | Action | Role |
-|--------|------|--------|------|
-
-
+| Routes | HTTP | Action |
+|--------|------|--------|
+| localhost:3000/ | GET | show form new data |
+| localhost:3000/ | POST | process form new data |
+| localhost:3000/list | GET | show table all data |
 
 ## package.json
 
