@@ -6,6 +6,7 @@ let addData = (req, res, next) => {
 }
 
 let processAddData = (req, res, next) => {
+  console.log(`lagi mau create`);
   EO.create({
     event_name  : req.body.event_name,
     event_title : req.body.event_title,
@@ -17,6 +18,7 @@ let processAddData = (req, res, next) => {
 
       res.render('index', {title: 'Event\'s Organizer',err: err, input: req.body})
     }else{
+      console.log(`success`);
       res.redirect('/list')
     }
 

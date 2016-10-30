@@ -10,6 +10,10 @@ var list = require('./routes/list');
 
 var app = express();
 
+//mongoose
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/library');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
